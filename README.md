@@ -1,59 +1,75 @@
-# MfDemo
+# Micro Frontend Demo Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+This is a simple micro frontend application built with Angular and Native Federation, consisting of:
 
-## Development server
+- **Shell (Host)** - Main application that hosts and navigates between micro frontends
+- **mfe-card** - Card micro frontend with a simple card interface
+- **mfe-products** - Products micro frontend with a product grid
 
-To start a local development server, run:
+## Features
 
+- Clean, modern UI with gradient backgrounds
+- Responsive design that works on all devices
+- Simple navigation between micro frontends
+- Standalone Angular components
+- Native Federation for micro frontend architecture
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 18 or higher)
+- Angular CLI
+
+### Installation
+
+1. Install dependencies:
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Running the Application
 
-## Code scaffolding
+You need to run all three applications simultaneously in separate terminals:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+#### Terminal 1 - Shell (Host)
 ```bash
-ng generate component component-name
+ng serve shell
 ```
+The shell will be available at: http://localhost:4200
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+#### Terminal 2 - Card Micro Frontend
 ```bash
-ng generate --help
+ng serve mfe-card
 ```
+The card MFE will be available at: http://localhost:4201
 
-## Building
-
-To build the project run:
-
+#### Terminal 3 - Products Micro Frontend
 ```bash
-ng build
+ng serve mfe-products
 ```
+The products MFE will be available at: http://localhost:4202
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Navigation
 
-## Running unit tests
+- Navigate to `/card` to see the Card Micro Frontend
+- Navigate to `/products` to see the Products Micro Frontend
+- The default route redirects to `/card`
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Architecture
 
-```bash
-ng test
-```
+- **Shell**: Uses Angular routing to load remote micro frontends
+- **Remote MFEs**: Standalone components that can be loaded independently
+- **Native Federation**: Handles the loading and communication between micro frontends
 
-## Running end-to-end tests
+## Development
 
-For end-to-end (e2e) testing, run:
+Each micro frontend can be developed independently. The shell application will automatically load the latest versions when they're rebuilt.
 
-```bash
-ng e2e
-```
+## Technologies Used
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular 17+
+- Native Federation
+- SCSS for styling
+- Standalone components
+- Modern CSS features (backdrop-filter, CSS Grid, Flexbox)
